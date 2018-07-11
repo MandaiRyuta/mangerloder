@@ -1,4 +1,3 @@
-#include "main.h"
 #include "textureloder.h"
 
 typedef std::map<std::string, TEXTUREWRAP> TextureTable;
@@ -19,7 +18,7 @@ bool TextureManager::Load(std::string key,TEXTURESIZE* texturesize)
 	if (it == m_Texture_.end())
 	{
 		HRESULT hr = NULL;
-		LPDIRECT3DTEXTURE9 pTexture;
+		LPDIRECT3DTEXTURE9 pTexture = nullptr;
 		hr = D3DXCreateTextureFromFile(
 			m_pDevice_,
 			key.c_str(),
@@ -53,7 +52,7 @@ TEXTUREWRAP TextureManager::GetTexture(std::string key)
 		PostQuitMessage(0);
 	}
 
-	return;
+	return TEXTUREWRAP();
 }
 
 bool TextureManager::Release(std::string key)

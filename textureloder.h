@@ -1,10 +1,16 @@
 #pragma once
+#include "main.h"
 #include <string>
 #include <map>
-#include <d3dx9.h>
 struct TEXTURESIZE {
 	int width;
 	int height;
+
+	TEXTURESIZE(int setwidth,int setheight)
+	{
+		width = setwidth;
+		height = setheight;
+	}
 };
 struct TEXTUREWRAP {
 	LPDIRECT3DTEXTURE9 pTexture;
